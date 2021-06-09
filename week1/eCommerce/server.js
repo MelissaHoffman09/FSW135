@@ -10,6 +10,9 @@ const PORT = 7500;
 app.use(express.json());
 app.use(morgan('dev'))
 
+//routes
+app.use("/inventory", require("./routes/inventoryRouter.js"));
+
 // database connect
 mongoose.connect('mongodb://localhost:27017/inventorydb', 
     {
@@ -20,9 +23,6 @@ mongoose.connect('mongodb://localhost:27017/inventorydb',
     },
     () => console.log("Connected to the database")
     )
-
-//routes
-app.use("/inventory", require("./routes/inventoryRouter.js"));
 
 // error handling
 app.use((err, req, res, next) => {
