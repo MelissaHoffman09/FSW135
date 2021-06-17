@@ -3,7 +3,7 @@ const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 
-const PORT = 7500;
+const PORT = 8500;
 
 
 //middleware
@@ -20,6 +20,9 @@ mongoose.connect('mongodb://localhost:27017/inventorydb',
     },
     () => console.log("Connected to the database")
     )
+
+// routes
+app.use("/inventory", require('./routes/inventoryRouter.js'))
 
 // error handling
 app.use((err, req, res, next) => {
