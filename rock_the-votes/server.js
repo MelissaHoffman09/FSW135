@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/rockthevotedb',
 () => console.log('Database is connected'))
 
 //Routes
-app.use('./user', require('./routes/authRouter.js'))
+app.use('/user', require('./routes/authRouter.js'))
 
 // Error
 app.use((err, req, res, next) => {
