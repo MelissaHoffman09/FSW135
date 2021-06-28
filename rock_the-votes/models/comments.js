@@ -1,23 +1,30 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Comment Schema
 const commentSchema = new Schema({
-    username: {
-        type: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "user",
         required: true,
-        lowercase: true
       },
-    comment: {
-      type: String,
-      required: true,
+    issue: {
+        type: Schema.Types.ObjectId,
+        ref: "Issue",
+        required: true,
     },
-    postDate: {
-      type: Date,
-      required: true
+    parent_comment: {
+        type: Schema.Types.ObjectId,
+        ref: "Comment",
+        required: true
     },
-    likes: {
-      type: Number,
-      default: 0
+    comment_txt: {
+        type: String,
+        required: true
+    },
+    insert_date: {
+        type: Date,
+        default: Date.now
     }
   });
 
