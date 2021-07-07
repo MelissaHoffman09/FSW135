@@ -1,31 +1,25 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-// Comment Schema
+
+//Comment Schema
 const commentSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: "user",
-        required: true,
-      },
-    issue: {
-        type: Schema.Types.ObjectId,
-        ref: "Issue",
-        required: true,
-    },
-    parent_comment: {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
-        required: true
-    },
-    comment_txt: {
-        type: String,
-        required: true
-    },
-    insert_date: {
+    commentDate: {
         type: Date,
         default: Date.now
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    issue: {
+        type: Schema.Types.ObjectId,
+        ref: "Issue"
+    },
+    comment: {
+        type: String,
+        required: true
     }
-  });
+})
 
 module.exports = mongoose.model("Comment", commentSchema)
