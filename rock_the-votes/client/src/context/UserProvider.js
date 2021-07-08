@@ -19,6 +19,9 @@ export default function UserProvider(props) {
 
     const [userState, setUserState] = useState(ititState)
 
+
+    //sign up
+
     function signup(credentials) {
         axios.post("/auth/signup", credentials)
             .then(res => {
