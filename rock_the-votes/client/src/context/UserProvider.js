@@ -37,6 +37,8 @@ export default function UserProvider(props) {
             .catch(err => handleAuthErr(err.response.data.errMsg))
     }
 
+    // login 
+
     function login(credentials) {
         axios.post("/auth/login", credentials)
         .then(res => {
@@ -52,6 +54,8 @@ export default function UserProvider(props) {
         })
         .catch(err => handleAuthErr(err.response.data.errMsg))
     }
+
+// logout 
 
     function logout() {
         localStorage.removeItem("token")

@@ -3,10 +3,7 @@ import { UserContext } from '../context/UserProvider.js'
 
 export default function Profile(props) {
 
-    const { user: { username }
-    } = useContext(UserContext)
-
-
+    const { user: { username } } = useContext(UserContext)
     return (
         <div className="container">
             <h1>Welcome {username}</h1>
