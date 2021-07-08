@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom'
 
 export default function Navbar(props) {
     const { logout, token } = props
-
     return (
         <div className="navbar">
             {!token && <NavLink exact to="/"

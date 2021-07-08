@@ -8,13 +8,14 @@ import {UserContext} from './context/UserProvider.js';
 
 function App() {
 const { token, logout } = useContext(UserContext)
-
   return (
     <div className="App">
       <Navbar logout={logout} token={token} />
       <Switch>
         <Route
-          exact path="/" render={() => token ? <Redirect to="/profile" /> : <Auth />} />
+          exact path="/" 
+          render={() => token ? <Redirect to="/profile" /> : <Auth />} 
+        />
         <ProtectedRoute
           path="/profile" 
           component={Profile}

@@ -7,7 +7,7 @@ export default function Profile(props) {
     return (
         <div className="container">
             <h1>Welcome {username}</h1>
-            <p>Here is your main profile page...</p>
+            <p>Profile Page</p>
         </div>
     )
 }
