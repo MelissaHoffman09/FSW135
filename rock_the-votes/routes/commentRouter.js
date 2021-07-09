@@ -3,7 +3,7 @@ const commentRouter = express.Router()
 const Comment = require('../models/comments')
 const jwt = require('jsonwebtoken')
 
-// get all, post new
+// GET ALL
 commentRouter.route("/")
     .get((req, res, next) => {
         Comment.find((err, comments) => {
@@ -14,6 +14,8 @@ commentRouter.route("/")
             return res.status(200).send(comments)
         })
     })
+
+// POST
     .post((req, res, next) => {
         req.body.user = req.user._id
         const newComment = new Comment(req.body)
@@ -26,7 +28,7 @@ commentRouter.route("/")
         })
     })
 
-// get all by user
+// GET ALL BY USER
 commentRouter.get("/user", (req, res, next) => {
     Comment.find({ user: req.user._id }, (err, comments) => {
         if(err){
@@ -37,7 +39,7 @@ commentRouter.get("/user", (req, res, next) => {
     })
 })
 
-// get all by issue
+// GET ALL by issue
 commentRouter.get("/issue", (req, res, next) => {
     Comment.find({ issue: req.params.issue._id }, (err, comments) => {
         if(err){
@@ -48,7 +50,7 @@ commentRouter.get("/issue", (req, res, next) => {
     })
 })
 
-// delete one, update one
+// DELETE ONE
 commentRouter.route("/:commentId")
     .delete((req, res, next) => {
         Comment.findOneAndDelete({ _id: req.params.commentId, user: req.user._id},
@@ -60,6 +62,8 @@ commentRouter.route("/:commentId")
             return res.status(200).send(`Successfully deleted Comment: ${deletedComment.postTitle}`)
         })
     })
+
+// UPDATE ONE
     .put((req, res, next) => {
         Comment.findOneAndUpdate({ _id: req.params.issueId, user: req.user._id },
             req.body,

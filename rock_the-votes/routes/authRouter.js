@@ -36,17 +36,17 @@ authRouter.post("/login", (req, res, next) => {
 
         if(!user){
             res.status(403)
-            return next(new Error("Username and password combination is incorrect"))
+            return next(new Error("Incorrect Login Credentials"))
         }
         user.checkPassword(req.body.password, (err, isMatch) => {
             if(err){
                 res.status(403)
-                return next(new Error("Username and password combination is incorrect"))
+                return next(new Error("Incorrect Login Credentials"))
             }
 
             if(!isMatch){
                 res.status(403)
-                return next(new Error("Username and password combination is incorrect"))
+                return next(new Error("Incorrect Login Credentials"))
             }
 
             const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
@@ -65,7 +65,7 @@ authRouter.get("/", (req, res, next) => {
     })
 })
 
-// GET, UPDATE, DELETE ONE
+// GET
 authRouter.route("/:username")
 .get((req, res, next) => {
     User.findOne({username: req.params.username},
@@ -79,6 +79,7 @@ authRouter.route("/:username")
         })
 })
 
+// UPDATE
 .put((req, res, next) => {
     User.findOneAndUpdate({username: req.params.username, user: req.user._id },
         req.body,
@@ -92,6 +93,7 @@ authRouter.route("/:username")
         })
 })
 
+// DELETE
 .delete((req, res, next) => {
     User.findOneAndDelete({username: req.params.username, user: req.user._id },
         (err, deletedUser) => {
