@@ -46,7 +46,7 @@ export default function Issue(props) {
         }))
     }
 
-// Add Vote
+// Like Vote
     function addUpvote(e) {
         e.preventDefault()
         checkIfVoted()
@@ -133,26 +133,29 @@ export default function Issue(props) {
     }, [])
 
     return (
-        <div className="issueContainer" id={props._id}>
+        <div className="issueBox" id={props._id}>
             <h1>{props.title}</h1>
-            <p>Posted by: <span><Link to="issuesbyuser" id="usernameOnIssue" params={{user: props.user}}>{props.user.username}</Link></span>{props.postDate}</p>
-            <p className="issuePostContent">{props.description}</p>
-            <button onClick={addUpvote}><img/></button>
-            <span className="issuePostContent">{issueState.upvotes}</span>
-            <button onClick={addDownvote}><img/></button>
-            <span className="issuePostContent">{issueState.downvotes}</span>
+            <p>Posted by: <span>
+                <Link to="issuesbyuser" id="usernameIssue" 
+                params={{user: props.user}}>{props.user.username}
+                </Link></span>{props.postDate}
+            </p>
+            <p className="issuePostBox">{props.description}</p>
+            <button onClick={addUpvote}></button>
+            <span className="issuePostBox">{issueState.upvotes}</span>
+            <button onClick={addDownvote}></button>
+            <span className="issuePostBox">{issueState.downvotes}</span>
 
-            {/* error section */}
+          
             <hr/>
-            <p style={{color: "red"}}>{issueState.errMsg}</p>
+            <p>{issueState.errMsg}</p>
 
-            {/* comments */}
             <form onSubmit={handleComment}>
             <input onChange={handleChange} 
                 name="comment" 
                 value={commentState.comment} 
                 type="text"
-                placeholder="New Comment...">
+                placeholder="Add Comment">
             </input>
             <button onClick={handleComment}>Comment</button>
             </form>

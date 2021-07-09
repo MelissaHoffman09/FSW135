@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 export default function Comment(props) {
-
     const initState = {
         _id: props._id,
         commentDate: props.commentDate,
@@ -13,8 +12,8 @@ export default function Comment(props) {
     const [commentState, setCommentState] = useState(initState)
 
     return (
-        <div className="commentContainer">
-            <p><span id="usernameOnIssue">({props.user.username} @ {props.commentDate})</span></p>
+        <div className="commentBox">
+            <p><span id="usernameIssue">({props.user.username} @ {props.commentDate})</span></p>
             <p className="comment">"{props.comment}"</p>
         </div>
     )

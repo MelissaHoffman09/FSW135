@@ -16,9 +16,8 @@ export default function IssuesPage(props) {
     }, [])
 
     return (
-        <div className="container">
-            <h1>Issues</h1>
-            <p>All registered members can vote, comment or create a post</p>
+        <div className="box">
+            <h1>Political Issues</h1>
             <IssuesList 
                 issues={issues} 
                 userAxios={userAxios} 
