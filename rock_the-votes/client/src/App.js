@@ -1,55 +1,38 @@
-import React, {useContext} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
-import Auth from './components/Auth.js';
-import Profile from './components/Profile.js';
-import IssuesPage from './components/IssuesPage.js';
-import Navbar from './components/Navbar.js';
-import ProtectedRoute from './components/ProtectedRoute.js';
-import {UserContext} from './context/UserProvider.js';
-import MyComments from './components/MyComments.js';
-import IssuesByUser from './components/IssuesByUser.js';
+import React, { useContext } from 'react'
+import Login from './components/Authorization/Login'
+import Navbar from './components/Page/Navbar'
+import Profile from './components/Page/Profile'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Campaign from './components/Page/Campaign'
+import { UserContext } from './context/UserProvider'
+import './index.css'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-function App() {
-const { token, logout, userAxios } = useContext(UserContext)
-
+const App = ()=>  {
+  const { token } = useContext(UserContext)
   return (
-    <div className="App">
-      <Navbar logout={logout} token={token} />
-
+    <div id='app'>
+      <Navbar />
       <Switch>
-
         <Route
-          exact path="/" render={() => token ? <Redirect to="/profile" /> : <Auth />} />
+          exact path='/'
+          render={() => token ? <Redirect to='/profile' /> : <Login />}
+        />
         <ProtectedRoute
-          path="/profile" 
+          path='/profile'
           component={Profile}
           redirectTo="/"
           token={token}
         />
-
-        <Route
-          exact path="/issues" render={() => 
-          <IssuesPage userAxios={userAxios} />} 
-        />
-
-        <ProtectedRoute
-          path="/mycomments" 
-          component={MyComments} 
-          userAxios={userAxios} 
+        <ProtectedRoute 
+          path="/campaign"
+          component={Campaign}
           redirectTo="/"
           token={token}
-        />
-
-        <Route 
-          name="issuesbyuser"
-          path="/issues/:user" 
-          render={() => 
-          <IssuesByUser userAxios={userAxios} />} 
-        />
-
+        />    
       </Switch>
-      
     </div>
   );
 }
+
 export default App;

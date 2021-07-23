@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #b22234;
+}
+
+body {
+  background-image: url('https://images.pexels.com/photos/722014/pexels-photo-722014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  opacity: 0.80;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
