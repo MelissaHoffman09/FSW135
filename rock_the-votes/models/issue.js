@@ -42,7 +42,7 @@ const issueSchema = new Schema({
   }]
 });
 
-// Upvotes and Downvotes
+/* Upvotes and Downvotes
 issueSchema.methods.addUpvote = function(){
   const issue = this.toObject()
   let upvotes = upvotes + 1
@@ -54,5 +54,6 @@ issueSchema.methods.addDownvote = function(){
   let downvotes = downvotes + 1
   return downvotes
 }
+*/
 
 module.exports = mongoose.model("Issue", issueSchema);
