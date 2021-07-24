@@ -55,7 +55,7 @@ const IssueForm = (props) => {
 
         <br/>
         <br/>
-      <button>Submit</button>
+      <button className="sform">Submit</button>
     </form>
     </div>
   )

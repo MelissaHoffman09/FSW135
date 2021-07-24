@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="loginBox">
-      <h1>Rock The Vote</h1>
+      <h1 className="title">Join Rock the Votes Today</h1>
       { !toggle ?
         <>
         <AuthForm 
@@ -45,7 +45,7 @@ const Login = () => {
             btnText="Login"
             errMsg={errMsg}
           /> 
-          <button onClick={() => toggleForm()}>Sign Up</button> 
+          <button className="sform" onClick={() => toggleForm()}>Sign Up</button> 
         </>
     
        :
@@ -57,8 +57,9 @@ const Login = () => {
             inputs={inputs}
             btnText="Sign Up"
             errMsg={errMsg}
-          />  
-          <button onClick={() => toggleForm()}>Sign In</button>  
+          /> 
+      
+          <button className="sform" onClick={() => toggleForm()}>Login</button>  
         </>   
       }
     </div>

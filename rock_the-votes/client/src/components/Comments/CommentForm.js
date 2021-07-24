@@ -33,10 +33,10 @@ const CommentForm = (props) => {
           value={comment}
           placeholder="Add Comment"
           onChange={handleChange} />
-
-        <button>Submit</button>
+      <span><button className="bform">Submit</button></span>
+      <span><button onClick={props.toggleComment} className="bform">Cancel</button></span>
       </form>
-      <button onClick={props.togglePComment}>Cancel</button>
+      
     </div>
   )
 }

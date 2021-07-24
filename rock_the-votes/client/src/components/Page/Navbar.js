@@ -5,12 +5,17 @@ import { UserContext } from '../../context/UserProvider'
 const Navbar = () => {
   const { logout, token } = useContext(UserContext)
   return (
-    <div className = "navbar">
-      {token && <Link to='/profile'>Profile</Link>}
-      <br />
-      <Link to='/campaign'>Campaign</Link>
-      <br />
-      {token && <button onClick = {logout}>Logout</button>}
+    <div>
+      <div className="logo">
+        <h1>ROCK THE VOTES</h1>
+      </div>
+      <div className = "navbar">
+        {token && <Link to='/profile' className="link">Profile</Link>}
+        <br />
+        <Link to='/campaign' className="link">Campaigns</Link>
+        <br />
+        {token && <button onClick = {logout} className="logout">Logout</button>}
+      </div>  
     </div>
   )
 }

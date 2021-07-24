@@ -11,13 +11,9 @@ const Comment = (props) => {
   return (
     <div key={_id} id={_id} className='comment'>
       <br/>
-      <span><strong>
-        Comment: {props.comment}
-      </strong></span> 
-      <br/>
-      <span><em>
-        @{username}
-      </em></span>   
+      <span>
+     <em>@{username}: </em> {props.comment}
+      </span> 
       <br/>
     </div>
   )

@@ -53,14 +53,14 @@ const Issue = (props) => {
   return (
     <div id={_id} key={_id} className = 'issue'>
 
-      <h3>{title}</h3>
-      <img src={imgUrl} width="285" height="325" alt="issueIMG"/>
-      <p><em>Issue:</em> {details}</p>
+      <h3 className="title">{title}</h3>
+      <img src={imgUrl} width="285" height="325" alt="issueIMG" className="img"/>
+      <p>{details}</p>
       <span><em>Posted By: @{username}</em></span>
       <br />
-      <span><em>Upvotes:</em> {props.upvotes}</span>
+      <span>Upvotes: {props.upvotes}</span>
       <br/>
-      <span><em>Downvotes:</em> {props.downvotes}</span>
+      <span>Downvotes: {props.downvotes}</span>
       <br/><br/>
 
       {showComments ?
@@ -70,21 +70,21 @@ const Issue = (props) => {
           getUsername = {getUsername}
         />) 
       : 
-      <button onClick={allComments}>View Comments</button>}
+      <button className="bform" onClick={allComments}>View Comments</button>}
       {showComments 
       ? 
-      <button onClick={allComments}>Hide Comments</button> : ""}
+      <button className="bform" onClick={allComments}>Hide Comments</button> : ""}
       {setsComments ? 
         <CommentForm 
           toggleComment = {toggleComment}
         /> 
       : 
-      <button onClick={toggleComment}>Post a Comment</button>}
+      <button className="bform" onClick={toggleComment}>Post a Comment</button>}
       {!showComments 
       ? 
-      <button onClick={addAnUpvote}>Upvote</button> : "" }
+      <button className="bform" onClick={addAnUpvote}>Upvote</button> : "" }
       {!showComments ? 
-      <button onClick={addADownvote}>Downvote</button> : ""}
+      <button className="bform" onClick={addADownvote}>Downvote</button> : ""}
       <br/>
     </div>
  

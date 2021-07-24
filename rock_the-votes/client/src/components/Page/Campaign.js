@@ -10,8 +10,8 @@ const Campaign = () => {
 
   return (
     <div className="profile">
-      <h1>Hello {username}!</h1>
-      <h3>Recent Campaigns</h3>   
+      <h1 className="greet">Hello {username}</h1>
+      <h3>Current Campaigns</h3>   
       <div className="issues">
         <IssueList
           issues={issues}

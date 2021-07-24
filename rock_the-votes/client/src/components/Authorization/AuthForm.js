@@ -28,10 +28,10 @@ const AuthForm = (props) => {
         name="password" 
         onChange={handleChange} 
         placeholder="Password"/>
+ <br/>     
+      <button className="sform">{ btnText }</button>
       
-      <button>{ btnText }</button>
-      
-      <p style={{color: "red", textAlign: "center", fontWeight:"bold"}} >{ errMsg }</p>
+      <p style={{color: "#B22234", textAlign: "center", fontWeight:"bold"}} >{ errMsg }</p>
     
     </form>
   )
