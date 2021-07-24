@@ -86,9 +86,9 @@ commentRouter
 //Update
 .put('/:commentId', (req, res, next) => {
   Comment.findOneAndUpdate(
-      { _id: req.params.commentID }, // Find one to update
-      req.body, // Update object with this data
-      { new: true }, // Send back the updated version?
+      { _id: req.params.commentID }, 
+      req.body, 
+      { new: true }, 
       (err, updatedComment) => {
           if(err) {
               res.status(500);
