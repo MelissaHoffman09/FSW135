@@ -54,14 +54,14 @@ const Issue = (props) => {
     <div id={_id} key={_id} className = 'issue'>
 
       <h3 className="title">{title}</h3>
-      <img src={imgUrl} width="285" height="325" alt="issueIMG" className="img"/>
+      <img src={imgUrl}alt="issueIMG" className="img"/>
       <p>{details}</p>
       <span><em>Posted By: @{username}</em></span>
       <br />
       <span>Upvotes: {props.upvotes}</span>
       <br/>
       <span>Downvotes: {props.downvotes}</span>
-      <br/><br/>
+      <br/>
 
       {showComments ?
       issueComments.map(comment => 
